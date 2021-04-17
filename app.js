@@ -4,7 +4,10 @@ window.addEventListener('load', ()=>{
     let tempDescription = document.querySelector(".temp-description");
     let temperature = document.querySelector(".temp-degrees");
     let timezone = document.querySelector(".location-timezone");
+    let time = document.querySelector(".location-time");
     const api_key = '4acc186aedd96291133eb9c26f6c2580';
+    var date = new Date();
+
 
     if(navigator.geolocation){  
         navigator.geolocation.getCurrentPosition(position => {
@@ -25,7 +28,8 @@ window.addEventListener('load', ()=>{
                     temperature.textContent = data.main.temp;
                     timezone.textContent = data.name;
                     tempDescription.textContent = data.weather[0].description;
-                   setIcons(data.weather[0].description , document.querySelector(".icon"));
+                    time.textContent = date.getHours() - 12 + " : " + date.getMinutes() ;
+                    setIcons(data.weather[0].description , document.querySelector(".icon"));
 
                 })
         });
@@ -42,7 +46,9 @@ window.addEventListener('load', ()=>{
             currentIcon = "RAIN";
         } else if(icon.includes("cloud") == true ){
             currentIcon = "CLOUDY";
-        }
+        } else if(icon.includes("snow") == true ){
+            currentIcon = "SNOW";
+        } 
         
         skycons.play();
         return skycons.set(iconID , Skycons[currentIcon])
