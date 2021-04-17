@@ -4,6 +4,6 @@
 
 ## Key takeaways : 
 * Fetching json data from API's
-* javascript canvas animations
+* Javascript canvas animations
 * Proxy usage
 * General syntax familiarity
