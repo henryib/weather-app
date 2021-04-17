@@ -28,7 +28,7 @@ window.addEventListener('load', ()=>{
                     temperature.textContent = data.main.temp;
                     timezone.textContent = data.name;
                     tempDescription.textContent = data.weather[0].description;
-                    time.textContent = date.getHours() - 12 + ":0" + date.getMinutes() ;
+                    time.textContent = date.getHours() - 12 + ":" + date.getMinutes() ;
                     setIcons(data.weather[0].description , document.querySelector(".icon"));
 
                 })
